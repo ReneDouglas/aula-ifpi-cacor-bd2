@@ -5,12 +5,16 @@ import model.Funcionario;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
+
+
+        // INSERIR FUNCIONARIO
 
         Connection con = DriverMySQL.getConnection();
         PreparedStatement ps = null;
@@ -26,19 +30,28 @@ public class Main {
         funcionario.setDataRegistro(LocalDateTime.now());
         funcionario.setAtivo(true);
 
-        funcionarioDAO.inserir(funcionario);
+        //funcionarioDAO.inserir(funcionario);
 
+        // LISTAR TODOS OS FUNCIONARIOS
         try {
-            /*ps = con.prepareStatement("SELECT * FROM funcionarios");
+            ps = con.prepareStatement("SELECT * FROM funcionarios");
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
-                System.out.println(rs.getInt("id"));
-                System.out.println(rs.getString("nome"));
+
+                var dadosFuncionario = "ID: %s NOME: %s \t DATA NASC.: %s \t SALÁRIO: %s \t DT. REGISTRO: %s \t ATIVO: %s"
+                        .formatted(
+                                rs.getInt("id"),
+                                rs.getString("nome"),
+                                rs.getDate("data_nasc"),
+                                rs.getBigDecimal("salario"),
+                                rs.getTimestamp("data_registro"),
+                                rs.getBoolean("cadastro_ativo")
+                        );
+
+                System.out.println(dadosFuncionario);
             }
             ps.close();
-            con.close();*/
-
-
+            con.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
