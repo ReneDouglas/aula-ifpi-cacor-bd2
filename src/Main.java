@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * 1 -> Implemente a função de listar para que retorne todos os funcionários cadastrados.
- *      Utilize o código abaixo (linhas 48:70), mas realize os ajustes necessários:
+ *      Utilize o código abaixo (linhas 48:68), mas realize os ajustes necessários:
  *          - Carregue os dados através do modelo Funcionario para, então, apresentá-los
  *          - Corrija o problema no alinhamento das colunas do relatório.
  *
@@ -62,8 +62,6 @@ public class Main {
 
                 System.out.println(dadosFuncionario);
             }
-            pstmt.close();
-            con.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
