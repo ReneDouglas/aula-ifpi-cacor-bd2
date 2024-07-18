@@ -1,7 +1,7 @@
-package DAOs;
+package DAO;
 
 import bancoDeDados.DriverMySQL;
-import models.Funcionario;
+import model.Funcionario;
 
 import java.sql.*;
 import java.util.List;
