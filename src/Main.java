@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * 1 -> Implemente a função de listar para que retorne todos os funcionários cadastrados.
@@ -42,6 +43,15 @@ public class Main {
         funcionario.setAtivo(true);
 
         //funcionarioDAO.inserir(funcionario);
+
+        // ATUALIZAR FUNCIONARIO
+        funcionario.setId(9);
+        funcionario.setSalario(new BigDecimal("1000.99"));
+        funcionario.setNome("Teste atualizado");
+        //funcionarioDAO.atualizar(funcionario);
+        funcionarioDAO.deletar(funcionario);
+
+
 
         // LISTAR TODOS OS FUNCIONARIOS
 
